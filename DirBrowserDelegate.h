@@ -11,7 +11,7 @@
 - (NSString*)path;
 @property (nonatomic, readonly) NSString *unresolvedPath;
 - (void)setPath:(NSString *)s;
-@property (weak) IBOutlet NSBrowser *b;
-@property (weak) NSMutableSet *revealedDirectories;
+@property (nonatomic, weak) IBOutlet NSBrowser *b;
+@property (nonatomic, weak) NSMutableSet *revealedDirectories;
 @property (readonly) NSString *currentResolvedPath; // basically a thread-safe copy saved from the last time the action was sent
 @end

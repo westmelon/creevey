@@ -1217,8 +1217,6 @@ scheduledTimerWithTimeInterval:timerIntvl
 		@autoreleasepool {
 			if ([imgCache loadFullSizeImageForCached:info]) {
 				dispatch_async(dispatch_get_main_queue(), ^{
-					NSImage *image = info.image;
-					if (image == nil) info.image = imgCache.fallbackImage;
 					// This works around a bizarre case where when we created the scaled image,
 					// CGBitmapContextCreate failed and reset the exif orientation to zero.
 					// Now with the full size the exif orientation may be set (correctly) again.
@@ -1503,7 +1501,7 @@ scheduledTimerWithTimeInterval:timerIntvl
 						continue;
 					if ([appDelegate shouldShowFile:url]) {
 						[files addObject:url.path];
-						if (++i % 100 == 0) [self updateStatusOnMainThread:^NSString *{ return [NSString stringWithFormat:@"%@ (%lu)", loadingMsg, i]; }];
+						if ((++i & 127) == 0) [self updateStatusOnMainThread:^NSString *{ return [NSString stringWithFormat:@"%@ (%lu)", loadingMsg, i]; }];
 					}
 					if (_stopLoading)
 						return;

@@ -43,6 +43,16 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 	return destinationRect;
 }
 
+@implementation DYMatrixFileInfo
+- (instancetype)initWithPath:(NSString *)aPath index:(NSUInteger)i {
+	if (self = [super init]) {
+		path = aPath;
+		idx = i;
+	}
+	return self;
+}
+@end
+
 @interface DYMatrixState () {
 	@public
 	NSUInteger numCells;
@@ -54,9 +64,9 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 @end
 
 @implementation DYMatrixState
-- (BOOL)imageWithFileInfoNeedsDisplay:(NSArray *)d {
-	NSUInteger i = [d[1] unsignedIntegerValue];
-	if (i < numCells && [_filenames[i] isEqualToString:d[0]]) {
+- (BOOL)imageWithFileInfoNeedsDisplay:(DYMatrixFileInfo *)d {
+	NSUInteger i = d->idx;
+	if (i < numCells && [_filenames[i] isEqualToString:d->path]) {
 		NSUInteger row = i/numCols, col = i%numCols;
 		NSPoint p = NSMakePoint(area_w*col,area_h*row);
 		if (NSPointInRect(p, visibleRect)) return YES;
@@ -883,15 +893,13 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 	return NO;
 }
 
-- (DYMatrixState *)currentState {
-	DYMatrixState *o = [[DYMatrixState alloc] init];
+- (void)loadCurrentState:(DYMatrixState *)o {
 	o->numCells = numCells;
 	o->numCols = numCols;
 	o->area_w = area_w;
 	o->area_h = area_h;
 	o->visibleRect = self.visibleRect;
 	o.filenames = filenames;
-	return o;
 }
 
 - (void)notifySelectionDidChange {

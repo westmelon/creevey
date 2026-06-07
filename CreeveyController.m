@@ -5,6 +5,7 @@
 //a letter to Creative Commons, 559 Nathan Abbott Way, Stanford,
 //California 94305, USA.
 
+@import UniformTypeIdentifiers;
 #import "CreeveyController.h"
 #import "DYJpegtran.h"
 #import "DYCarbonGoodies.h"
@@ -171,19 +172,6 @@ NSMutableAttributedString* Fileinfo2EXIFString(NSString *origPath, DYImageCache 
 		@"MainWindowSplitViewTopHeight":@151.0f,
 	}];
 
-	// migrate old RBSplitView pref
-	if (0.0 == [defaults floatForKey:@"MainWindowSplitViewTopHeight"]) {
-		NSString *rbsplitviewvalue = [defaults stringForKey:@"RBSplitView H DividerLoc"];
-		if (rbsplitviewvalue) {
-			NSScanner *scanner = [NSScanner scannerWithString:rbsplitviewvalue];
-			if ([scanner scanInt:NULL]) {
-				int rbsplitviewheight;
-				if ([scanner scanInt:&rbsplitviewheight])
-					[defaults setFloat:(float)rbsplitviewheight forKey:@"MainWindowSplitViewTopHeight"];
-			}
-		}
-	}
-
 	[NSValueTransformer setValueTransformer:[[TimeIntervalPlusWeekToStringTransformer alloc] init]
 									forName:@"TimeIntervalPlusWeekToStringTransformer"];
 }
@@ -193,22 +181,17 @@ NSMutableAttributedString* Fileinfo2EXIFString(NSString *origPath, DYImageCache 
 		filetypes = [[NSMutableSet alloc] init];
 		fileostypes = [[NSMutableSet alloc] init];
 		disabledFiletypes = [[NSMutableSet alloc] init];
-		filetypeDescriptions = [[NSMutableDictionary alloc] init];
 		for (NSString *identifier in NSImage.imageUnfilteredTypes) {
 			// easier to use UTType class from UniformTypeIdentifiers, but that's only available in macOS 11
+			// wait actually UTType doesn't include ostypes because apparently "HFS file types are obsolete." :(
+			// YOU CAN PRY MY HFS FILE TYPES OUT OF MY COLD DEAD HANDS
 			CFDictionaryRef t = UTTypeCopyDeclaration((__bridge CFStringRef)identifier);
 			if (t == NULL) continue;
 			CFDictionaryRef tags = CFDictionaryGetValue(t, kUTTypeTagSpecificationKey);
 			if (tags) {
 				NSArray *exts = CFDictionaryGetValue(tags, kUTTagClassFilenameExtension);
-				if (exts) {
+				if (exts)
 					[filetypes addObjectsFromArray:exts];
-					NSString *description = CFDictionaryGetValue(t, kUTTypeDescriptionKey);
-					if (description) for (NSString *ext in exts) {
-						NSString *s = filetypeDescriptions[ext];
-						filetypeDescriptions[ext] = s ? [s stringByAppendingFormat:@" / %@", description] : description;
-					}
-				}
 				CFArrayRef ostypes = CFDictionaryGetValue(tags, kUTTagClassOSType);
 				if (ostypes) for (NSString *s in (__bridge NSArray *)ostypes) {
 					// enclose HFS file types in single quotes, e.g. "'PICT'"
@@ -1099,7 +1082,7 @@ enum {
 }
 
 #pragma mark prefs stuff
-- (IBAction)openPrefWin:(id)sender; {
+- (IBAction)openPrefWin:(id)sender {
 	if (!prefsWin) {
 		NSArray * __autoreleasing arr;
 		if (![NSBundle.mainBundle loadNibNamed:@"PrefsWin" owner:self topLevelObjects:&arr]) return;
@@ -1110,7 +1093,7 @@ enum {
 	}
     [prefsWin makeKeyAndOrderFront:nil];
 }
-- (IBAction)chooseStartupDir:(id)sender; {
+- (IBAction)chooseStartupDir:(id)sender {
     NSOpenPanel *op=[NSOpenPanel openPanel];
 	NSUserDefaults *u = NSUserDefaults.standardUserDefaults;
 	
@@ -1196,7 +1179,7 @@ static void SendAction(NSMenuItem *sender) {
 	}
 }
 
-- (IBAction)slideshowDefaultsChanged:(id)sender; {
+- (IBAction)slideshowDefaultsChanged:(id)sender {
 	if (slidesWindow.visible)
 		slideshowApplyBtn.enabled = YES;
 	else
@@ -1426,7 +1409,7 @@ static void SendAction(NSMenuItem *sender) {
 NSDirectoryEnumerator *CreeveyEnumerator(NSString *path, BOOL recurseSubfolders) {
 	return [NSFileManager.defaultManager
 			enumeratorAtURL:[NSURL fileURLWithPath:path isDirectory:YES]
-			includingPropertiesForKeys:@[NSURLIsDirectoryKey,NSURLIsHiddenKey]
+			includingPropertiesForKeys:@[NSURLIsDirectoryKey,NSURLIsHiddenKey,NSURLIsAliasFileKey,NSURLIsSymbolicLinkKey]
 			options:recurseSubfolders ? 0 : NSDirectoryEnumerationSkipsSubdirectoryDescendants
 			errorHandler:nil];
 }
@@ -1459,6 +1442,17 @@ NSDirectoryEnumerator *CreeveyEnumerator(NSString *path, BOOL recurseSubfolders)
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	if (filetypeDescriptions == nil) {
+		filetypeDescriptions = [[NSMutableDictionary alloc] init];
+		for (NSString *identifier in NSImage.imageUnfilteredTypes) {
+			UTType *t = [UTType typeWithIdentifier:identifier];
+			NSString *description = t.localizedDescription;
+			for (NSString *ext in t.tags[UTTagClassFilenameExtension]) {
+				NSString *s = filetypeDescriptions[ext];
+				filetypeDescriptions[ext] = s ? [s stringByAppendingFormat:@" / %@", description] : description;
+			}
+		}
+	}
 	if ([tableColumn.identifier isEqualToString:@"enabled"]) return @([filetypes containsObject:fileextensions[row]]);
 	if ([tableColumn.identifier isEqualToString:@"description"]) return filetypeDescriptions[fileextensions[row]];
 	return fileextensions[row];

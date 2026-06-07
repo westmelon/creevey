@@ -7,8 +7,17 @@
 
 @import Cocoa;
 
+@interface DYMatrixFileInfo : NSObject {
+	@public
+	NSString *path;
+	NSUInteger idx;
+}
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithPath:(NSString *)aPath index:(NSUInteger)i NS_DESIGNATED_INITIALIZER;
+@end
+
 @interface DYMatrixState : NSObject
-- (BOOL)imageWithFileInfoNeedsDisplay:(NSArray *)d;
+- (BOOL)imageWithFileInfoNeedsDisplay:(DYMatrixFileInfo *)d;
 @end
 
 // displays thumbnails of image files
@@ -39,7 +48,7 @@
 - (void)addImage:(NSImage *)theImage withFilename:(NSString *)s atIndex:(NSUInteger)i;
 - (void)updateImage:(NSImage *)theImage atIndex:(NSUInteger)i;
 - (BOOL)setImage:(NSImage *)theImage atIndex:(NSUInteger)i forFilename:(NSString *)s; // to be called on main thread from other thread
-@property (nonatomic, readonly) DYMatrixState *currentState;
+- (void)loadCurrentState:(DYMatrixState *)o;
 - (void)removeAllImages;
 - (void)removeImageAtIndex:(NSUInteger)i;
 - (void)moveImageAtIndex:(NSUInteger)fromIdx toIndex:(NSUInteger)toIdx;

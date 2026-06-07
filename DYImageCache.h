@@ -12,7 +12,7 @@
 
 NSString *FileSize2String(unsigned long long fileSize);
 
-typedef NS_ENUM(char, DYImageQuality) {
+typedef NS_ENUM(unsigned char, DYImageQuality) {
 	DYImageQualityLow,  // faster "thumbnail"
 	DYImageQualityHigh, // scaled with high quality interpolation
 	DYImageQualityFull, // the full size image
@@ -23,11 +23,12 @@ typedef NS_ENUM(char, DYImageQuality) {
 	time_t modTime;
 	off_t fileSize;
 	NSSize pixelSize;
-	unsigned short exifOrientation;
-	DYImageQuality quality;
+	unsigned short exifOrientation : 4;
+	DYImageQuality quality : 2;
 }
-@property (strong, nonatomic) NSImage *image;
+@property (readonly, nonatomic) NSImage *image;
 @property (readonly, nonatomic) NSString *path;
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithPath:(NSString *)s NS_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) BOOL hasFullSizeImage;
 @property (nonatomic, readonly, copy) NSString *pixelSizeAsString;
@@ -37,6 +38,7 @@ typedef NS_ENUM(char, DYImageQuality) {
 @interface DYImageCache : NSObject
 @property (nonatomic) BOOL fastThumbnails; // faster but lower quality rendering. default is NO
 @property (strong, nonatomic) NSImage *fallbackImage; // if set, store this image in the cache if a file does not load
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithCapacity:(NSUInteger)n NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, readonly) float boundingWidth;

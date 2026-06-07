@@ -26,8 +26,9 @@ NSString *ResolveAliasToPath(NSString *path) {
 	CFURLRef url = CFURLCreateWithFileSystemPath(NULL, (__bridge CFStringRef)path, kCFURLPOSIXPathStyle, NO /*isDirectory*/);
 	if (url == NULL) return path;
 	NSURL *resolved = ResolveAliasURL((__bridge NSURL *)url);
+	if (resolved == (void *)url) resolved = nil;
 	CFRelease(url);
-	return resolved.path;
+	return resolved ? resolved.path : path;
 }
 
 NSURL *ResolveAliasURL(NSURL *url) {
@@ -119,9 +120,3 @@ BOOL FileIsJPEG(NSString *s) {
 }
 
 @end
-
-CGImageSourceRef _Nullable CGImageSourceCreateFromPath(NSString *path) {
-	NSData *data = [NSData dataWithContentsOfFile:path];
-	if (data) return CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
-	return NULL;
-}

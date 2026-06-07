@@ -173,7 +173,7 @@ typedef struct {
 	_Atomic char stopCaching;
 	
 	NSConditionLock *imageCacheQueueLock;
-	NSMutableArray *imageCacheQueue, *secondaryImageCacheQueue;
+	NSMutableArray<DYMatrixFileInfo *> *imageCacheQueue, *secondaryImageCacheQueue;
 	_Atomic BOOL imageCacheQueueRunning;
 	_Atomic NSInteger _maxCellWidth;
 	BOOL exifWindowNeedsUpdate;
@@ -381,14 +381,10 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 		case 7: sel = @selector(localizedStandardCompare:); break;
 		default: sel = @selector(compare:);
 	}
-	if (descending) return ^NSComparisonResult(id a, id b) {
-		compIMP f = (compIMP)[b methodForSelector:sel];
-		return f(b, sel, a);
-	};
-	return ^NSComparisonResult(id a, id b) {
-		compIMP f = (compIMP)[a methodForSelector:sel];
-		return f(a, sel, b);
-	};
+	compIMP f = (compIMP)[NSString instanceMethodForSelector:sel];
+	if (descending)
+		return ^NSComparisonResult(id a, id b) { return f(b, sel, a); };
+	return ^NSComparisonResult(id a, id b) { return f(a, sel, b); };
 }
 - (NSComparator)comparator {
 	return ComparatorForSortOrder(sortOrder);
@@ -682,7 +678,7 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 						[filenames addObject:aPath];
 						if (startSlideshowWhenReady && [filesBeingOpened containsObject:aPath])
 							[filesForSlideshow addObject:aPath];
-						if (++i % 100 == 0)
+						if ((++i & 127) == 0)
 							[self updateStatusOnMainThread:^NSString *{
 								return [NSString stringWithFormat:@"%@ (%lu)", loadingMsg, i];
 							}];
@@ -773,7 +769,7 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 				// images to the queue automatically
 				if (cachedImage == nil && i < maxThumbs) {
 					[imageCacheQueueLock lock];
-					[secondaryImageCacheQueue addObject:@[origPath, @(i)]];
+					[secondaryImageCacheQueue addObject:[[DYMatrixFileInfo alloc] initWithPath:origPath index:i]];
 					[imageCacheQueueLock unlockWithCondition:1];
 				}
 			}
@@ -1025,7 +1021,8 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 							pixelSize.width = CGImageGetWidth(ref);
 							pixelSize.height = CGImageGetHeight(ref);
 							CFRelease(ref);
-						}
+						} else
+							pixelSize = NSZeroSize;
 						CFRelease(imgSrc);
 					} else
 						pixelSize = NSZeroSize;
@@ -1062,29 +1059,29 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 	NSImage *thumb = [thumbsCache imageForKeyInvalidatingCacheIfNecessary:ResolveAliasToPath(filename)];
 	if (thumb) return thumb;
 	[imageCacheQueueLock lock];
-	[imageCacheQueue insertObject:@[filename, @(i)] atIndex:0];
+	[imageCacheQueue insertObject:[[DYMatrixFileInfo alloc] initWithPath:filename index:i] atIndex:0];
 	[imageCacheQueueLock unlockWithCondition:1];
 	return nil;
 }
 
 // this thread runs forever, waiting for objects to be added to its queue
-- (void)thumbLoader:(id)arg {
+- (void)thumbLoader:(id)arg { @autoreleasepool {
 	NSThread.currentThread.name = @"thumbLoader:";
 	NSThread.currentThread.qualityOfService = NSQualityOfServiceDefault;
 	DYImageCache *thumbsCache = appDelegate.thumbsCache;
 	// only use exif thumbs if we're at the smallest thumbnail  setting
 	NSUInteger i, lastCount = 0;
-	NSMutableArray *visibleQueue = [[NSMutableArray alloc] initWithCapacity:100];
+	NSMutableArray<DYMatrixFileInfo *> *visibleQueue = [[NSMutableArray alloc] initWithCapacity:100];
 	NSString *loadingMsg = NSLocalizedString(@"Loading %lu of %lu...", @"");
 	BOOL workToDo = YES;
+	DYMatrixState *currState = [[DYMatrixState alloc] init];
 	while (YES) {
 		@autoreleasepool {
 			// all calls to the thumbnail view must be on the main thread, which we wait for synchronously
 			// to avoid a deadlock (where the view's drawRect calls our loadImageForFile, which modifies the cache queue),
 			// we save the state of the view before acquiring the lock (we can't use NSRecursiveLock since we need NSConditionLock)
-			DYMatrixState * __block currState;
 			dispatch_sync(dispatch_get_main_queue(), ^{
-				currState = imgMatrix.currentState;
+				[imgMatrix loadCurrentState:currState];
 			});
 			[imageCacheQueueLock lockWhenCondition:1];
 			if (!imageCacheQueueRunning) {
@@ -1098,8 +1095,7 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 				[imageCacheQueue addObject:secondaryImageCacheQueue[0]];
 				[secondaryImageCacheQueue removeObjectAtIndex:0];
 			}
-			NSArray *d;
-			NSString *origPath;
+			DYMatrixFileInfo *d;
 			// discard any items in the queue that are no longer in the browser's directory.
 			// prioritize important files (the visible ones) by putting them in a higher-priority array.
 			if (!visibleQueue.count                   // nothing in the priority queue, so search for more items to add to it...
@@ -1109,9 +1105,8 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 				i = imageCacheQueue.count;
 				while (i--) {
 					d = imageCacheQueue[i];
-					origPath = d[0];
 					//NSLog(@"considering %@ for priority queue", [d objectForKey:@"index"]);
-					if (![self pathIsVisibleThreaded:origPath]) {
+					if (![self pathIsVisibleThreaded:d->path]) {
 						if (imageCacheQueue.count > 1) // leave at least one item so it won't crash later (the next while loop assumes there's at least one item)
 							//NSLog(@"skipping %@ because path has changed", [d objectForKey:@"index"]),
 							[imageCacheQueue removeObjectAtIndex:i];
@@ -1131,7 +1126,6 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 				if (visibleQueue.count) {
 					// run through this "pre-approved" array before touching the main queue
 					d = visibleQueue[0];
-					origPath = d[0];
 					if ([currState imageWithFileInfoNeedsDisplay:d] || visibleQueue.count == 1) {
 						[visibleQueue removeObjectAtIndex:0];
 						//if ([imgMatrix imageWithFileInfoNeedsDisplay:d])
@@ -1147,7 +1141,6 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 					}
 				}
 				d = imageCacheQueue[i];
-				origPath = d[0];
 				//NSLog(@"considering %@ in main loop", [d objectForKey:@"index"]);
 				if (imageCacheQueue.count-1 == i) { // if we've reached the last item of the array, we have to process it
 					[imageCacheQueue removeObjectAtIndex:i];
@@ -1164,7 +1157,7 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 			workToDo = (imageCacheQueue.count || visibleQueue.count || secondaryImageCacheQueue.count);
 			[imageCacheQueueLock unlockWithCondition:workToDo ? 1 : 0]; // keep the condition as 1 (more work needs to be done) if there's still stuff in the array
 			
-			NSString *theFile = ResolveAliasToPath(origPath);
+			NSString *origPath = d->path, *theFile = ResolveAliasToPath(origPath);
 			NSImage *thumb = [thumbsCache imageForKey:theFile];
 			BOOL addedToCache = NO;
 			if (thumb) {
@@ -1188,11 +1181,11 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 					addedToCache = YES;
 				}
 			}
-
+			
 			if (!thumb)
 				thumb = _brokenDoc;
 			dispatch_async(dispatch_get_main_queue(), ^{
-				if ([imgMatrix setImage:thumb atIndex:[d[1] unsignedIntegerValue] forFilename:origPath]) {
+				if ([imgMatrix setImage:thumb atIndex:d->idx forFilename:origPath]) {
 					if (addedToCache) {
 						[_accessedLock lock];
 						[_accessedFiles addObject:origPath];
@@ -1213,6 +1206,6 @@ NSComparator ComparatorForSortOrder(short sortOrder) {
 								   withObject:nil
 								waitUntilDone:NO];
 	}
-}
+}}
 
 @end

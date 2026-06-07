@@ -27,7 +27,4 @@ BOOL FileIsJPEG(NSString *s);
 @property (nonatomic, readonly) NSArray<NSURL *> *asFileURLs;
 @property (nonatomic, readonly) NSArray<NSString *> *asFilePaths;
 @end
-
-CGImageSourceRef _Nullable CGImageSourceCreateFromPath(NSString *path);
-
 NS_ASSUME_NONNULL_END

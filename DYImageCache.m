@@ -39,10 +39,16 @@ static unsigned short CGImageSourceOrientationAtIndex(CGImageSourceRef src, size
 	return 0;
 }
 
+static CGImageSourceRef CGImageSourceCreateFromPath(NSString *path) {
+	NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:NULL];
+	if (data) return CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+	return NULL;
+}
+
 
 @interface DYImageInfo () <NSDiscardableContent>
-- (instancetype)init NS_UNAVAILABLE;
-@property NSUInteger counter;
+@property unsigned int counter;
+@property (nonatomic, strong) NSImage *image;
 @end
 @implementation DYImageInfo
 @synthesize image, path;
@@ -61,7 +67,7 @@ static unsigned short CGImageSourceOrientationAtIndex(CGImageSourceRef src, size
 	return self;
 }
 - (NSString *)pixelSizeAsString {
-	return [NSString stringWithFormat:@"%dx%d", (int)pixelSize.width, (int)pixelSize.height];
+	return [NSString stringWithFormat:@"%dx%d", (unsigned int)pixelSize.width, (unsigned int)pixelSize.height];
 }
 
 - (BOOL)hasFullSizeImage {
@@ -80,7 +86,7 @@ static unsigned short CGImageSourceOrientationAtIndex(CGImageSourceRef src, size
 			CGImageRef ref = CGImageSourceCreateImageAtIndex(src, idx, (__bridge CFDictionaryRef)@{(__bridge NSString *)kCGImageSourceShouldCacheImmediately:@YES});
 			if (ref) {
 				image = [[NSImage alloc] initWithCGImage:ref size:NSZeroSize];
-				if ([type isEqualToString:@"public.tiff"] && (abs((int)(pixelSize.width - CGImageGetWidth(ref))) > 1000)) {
+				if ([type isEqualToString:@"public.tiff"] && (pixelSize.width - CGImageGetWidth(ref) > 1000)) {
 					// workaround for tiny NEF images
 					image = nil;
 				}
@@ -110,9 +116,9 @@ static CGImageRef CreateScaledNicer(CGImageRef ref, NSSize boundingSize) {
 		}
 		CGFloat w_ratio = newSize.width/imgSize.width, h_ratio = newSize.height/imgSize.height;
 		if (w_ratio < h_ratio) {
-			newSize.height = (int)(imgSize.height*w_ratio);
+			newSize.height = (unsigned int)(imgSize.height*w_ratio);
 		} else {
-			newSize.width = (int)(imgSize.width*h_ratio);
+			newSize.width = (unsigned int)(imgSize.width*h_ratio);
 		}
 		CGContextRef ctx = CGBitmapContextCreate(NULL, newSize.width, newSize.height, CGImageGetBitsPerComponent(ref), 0, colorSpace, CGImageGetBitmapInfo(ref));
 		if (ctx) {
@@ -177,7 +183,6 @@ static CGImageRef CreateScaledNicer(CGImageRef ref, NSSize boundingSize) {
 	NSUInteger _maxCount;
 	DYImageInfo *_stupidCacheWorkaround; // see note under addImage:forFile:
 }
-- (instancetype)init NS_UNAVAILABLE;
 @end
 
 @implementation DYImageCache
@@ -222,7 +227,7 @@ static void ScaleImage(NSImage *orig, NSSize boundingSize, BOOL _rotatable, DYIm
 				maxSize.width = boundingSize.height;
 			}
 			
-			if (oldSize.width <= maxSize.width && oldSize.height <= maxSize.height) {
+			if (oldSize.width <= maxSize.width*2 && oldSize.height <= maxSize.height*2) {
 				result = orig;
 				if (!NSEqualSizes(oldSize,orig.size))
 					orig.size = oldSize;
@@ -232,11 +237,11 @@ static void ScaleImage(NSImage *orig, NSSize boundingSize, BOOL _rotatable, DYIm
 				w_ratio = maxSize.width/oldSize.width;
 				h_ratio = maxSize.height/oldSize.height;
 				if (w_ratio < h_ratio) { // the side w/ bigger ratio needs to be shrunk
-					newSize.height = (int)(oldSize.height*w_ratio);
-					newSize.width = (int)(maxSize.width);
+					newSize.height = (unsigned int)(oldSize.height*w_ratio);
+					newSize.width = (unsigned int)(maxSize.width);
 				} else {
-					newSize.width = (int)(oldSize.width*h_ratio);
-					newSize.height = (int)(maxSize.height);
+					newSize.width = (unsigned int)(oldSize.width*h_ratio);
+					newSize.height = (unsigned int)(maxSize.height);
 				}
 				if (newSize.width == 0) newSize.width = 1; // super-skinny images will make this crash unless you specify a minimum dimension of 1
 				if (newSize.height == 0) newSize.height = 1;
@@ -281,6 +286,16 @@ static CGImageRef CreateScaledFaster(CGImageSourceRef src, size_t idx, NSSize bo
 	return CGImageSourceCreateThumbnailAtIndex(src, idx, (__bridge CFDictionaryRef)@{(__bridge NSString *)kCGImageSourceCreateThumbnailFromImageAlways:@YES, (__bridge NSString *)kCGImageSourceThumbnailMaxPixelSize:@(max)});
 }
 
+static __inline__ BOOL UnexpectedSize(NSString *type, NSString *path, size_t width) {
+	if ([type isEqualToString:@"public.tiff"]) {
+		// CGImageSourceCreateImageAtIndex returns tiny images for certain raw files (.NEF), so we work around it by calling ScaleImage later instead
+		NSImage *img = [[NSImage alloc] initByReferencingFile:path];
+		NSSize expectedSize = img.size;
+		return expectedSize.width > width;
+	}
+	return NO;
+}
+
 #define REALLYBIG_FILESIZE 35000000
 // let's say 35MB is big
 static void ScaleCGImage(CGImageSourceRef orig, CGSize boundingSize, DYImageInfo *imgInfo, BOOL fastThumbnails) {
@@ -289,16 +304,16 @@ static void ScaleCGImage(CGImageSourceRef orig, CGSize boundingSize, DYImageInfo
 	NSString *type = (__bridge NSString *)CGImageSourceGetType(orig);
 	CGImageRef full = CGImageSourceCreateImageAtIndex(orig, idx, fastThumbnails ? (__bridge CFDictionaryRef)@{(__bridge NSString *)kCGImageSourceShouldCache:@NO} : NULL);
 	if (full) {
-		CGSize fullSize = {CGImageGetWidth(full),CGImageGetHeight(full)};
-		imgInfo->pixelSize = fullSize;
+		size_t fwidth = CGImageGetWidth(full), fheight = CGImageGetHeight(full);
+		imgInfo->pixelSize = NSMakeSize(fwidth, fheight);
 
 		if (([type isEqualToString:@"com.compuserve.gif"]) && CGImageSourceGetCount(orig) > 1) {
 			// special case for animated gifs
 			imgInfo.image = [[NSImage alloc] initWithContentsOfFile:imgInfo.path];
 			imgInfo->quality = DYImageQualityFull;
-		} else if (!fastThumbnails) {
+		} else if (!fastThumbnails && !UnexpectedSize(type, imgInfo.path, fwidth)) {
 			CGFloat maxLen = 1.5*boundingSize.width;
-			if (imgInfo->pixelSize.width < maxLen && imgInfo->pixelSize.height < maxLen) {
+			if (fwidth < maxLen && fheight < maxLen) {
 				imgInfo.image = [[NSImage alloc] initWithCGImage:full size:NSZeroSize];
 				imgInfo->quality = DYImageQualityFull;
 			} else {
@@ -310,14 +325,6 @@ static void ScaleCGImage(CGImageSourceRef orig, CGSize boundingSize, DYImageInfo
 					imgInfo->quality = isBig ? DYImageQualityLow : DYImageQualityHigh;
 					CFRelease(scaled);
 				}
-			}
-			if ([type isEqualToString:@"public.tiff"]) {
-				NSImage *img = [[NSImage alloc] initByReferencingFile:imgInfo.path];
-				NSSize expectedSize = img.size;
-				// CGImageSourceCreateImageAtIndex returns tiny images for certain raw files (.NEF), so we work around it
-				// by calling ScaleImage below.
-				if (abs((int)(expectedSize.width - fullSize.width)) > 1000)
-					imgInfo.image = nil;
 			}
 		}
 		CFRelease(full);
@@ -582,6 +589,7 @@ static void ScaleCGImage(CGImageSourceRef orig, CGSize boundingSize, DYImageInfo
 	NSString *s = info.path;
 	if (![self attemptLockOnFile:s checkCache:NO]) return NO;
 	[info loadFullSizeImage];
+	if (info.image == nil) info.image = _fallbackImage;
 	[self dontAddFile:s];
 	return YES;
 }
@@ -590,6 +598,7 @@ static void ScaleCGImage(CGImageSourceRef orig, CGSize boundingSize, DYImageInfo
 	NSString *s = info.path;
 	if (![self attemptLockOnFile:s checkCache:NO]) return NO;
 	[info loadHighInterpolationImage:boundingSize];
+	if (info.image == nil) info.image = _fallbackImage;
 	[self dontAddFile:s];
 	return YES;
 }
