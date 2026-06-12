@@ -694,6 +694,7 @@ scheduledTimerWithTimeInterval:timerIntvl
 		BOOL imgFlipped = [flips[theFile] boolValue];
 		
 		if (hideInfoFld) infoFld.hidden = YES; // this must happen before setImage, for redraw purposes
+		imgView.preferWhiteBackground = IsNotCGImage(resolvedPath.pathExtension.lowercaseString);
 		DYImageInfo *info = [imgCache infoForKey:resolvedPath];
 		if (autoRotate && !rot && !imgFlipped && info->exifOrientation > 1) {
 			// auto-rotate by exif orientation

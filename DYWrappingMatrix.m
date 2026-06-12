@@ -621,7 +621,9 @@ static NSRect ScaledCenteredRect(NSSize sourceSize, NSRect boundsRect) {
 			//NSLog(@"skipped cell %i", i);
 			continue;
 		}
-		[_imageBackgroundColor set]; // for transparent images
+		// PDFs and SVGs assume a white page behind their transparency, so always back them
+		// with white rather than the user-chosen transparent-image background color
+		[(IsNotCGImage(filename.pathExtension.lowercaseString) ? NSColor.whiteColor : _imageBackgroundColor) set];
 		[NSBezierPath fillRect:[self backingAlignedRect:cellRect options:NSAlignAllEdgesInward]];
 		if (autoRotate) {
 			unsigned short orientation = [self exifOrientationForIndex:i];

@@ -166,7 +166,9 @@ static NSRect ZoomAlignedRect(NSRect r, float zoom, CGFloat backingScaleFactor) 
 	NSAffineTransform *transform = [self drawingTransform];
 	[transform concat];
 	
-	[_imageBackgroundColor set]; // background for transparent gifs
+	// PDFs and SVGs are usually dark text/art on a transparent page, so always back them
+	// with white rather than the user-chosen transparent-image background color
+	[(_preferWhiteBackground ? NSColor.whiteColor : _imageBackgroundColor) set];
 	[NSBezierPath fillRect:destRect];
 
 	NSGraphicsContext *cg = NSGraphicsContext.currentContext;

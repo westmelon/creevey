@@ -40,6 +40,7 @@
 @property (nonatomic) BOOL scalesUp;
 @property (nonatomic) BOOL showActualSize;
 @property (nonatomic) NSColor *imageBackgroundColor;
+@property (nonatomic) BOOL preferWhiteBackground; // for PDF/SVG, which usually assume a white page behind their transparency
 @property (nonatomic, weak) id<DYImageViewDelegate> delegate;
 
 - (void)setCursor;
