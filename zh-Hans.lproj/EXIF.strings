@@ -1,0 +1,374 @@
+
+/* Properties that, if returned by CGImageSourceGetProperties or 
+ * CGImageSourceGetPropertiesAtIndex, contain a dictionary of file-format 
+ * or metadata-format specific key-values. */
+
+"{TIFF}"			= "TIFF 属性";
+"{GIF}"				= "GIF 属性";
+"{JFIF}"			= "JFIF 属性";
+"{Exif}"			= "Exif 属性";
+"{PNG}"				= "PNG 属性";
+"{IPTC}"			= "IPTC 属性";
+"{GPS}"				= "GPS 属性";
+"{Raw}"				= "Raw 属性";
+"{8BIM}"			= "Photoshop 属性";
+
+/** Properties which may be returned by "CGImageSourceGetProperties".  The
+ ** values apply to the container in general but not necessarily to any
+ ** individual image that it contains. **/
+
+"FileSize"			= "文件大小";
+
+/** Properties which may be returned by "CGImageSourceGetPropertiesAtIndex".
+ ** The values apply to a single image of an image source file. **/
+
+"DPIHeight"			= "DPI 高度";
+"DPIWidth"			= "DPI 宽度";
+"PixelHeight"			= "像素高度";
+"PixelWidth"			= "像素宽度";
+"Depth"				= "深度";
+"Orientation"			= "方向";
+"IsFloat"			= "是否浮点";
+"IsIndexed"			= "是否索引";
+"HasAlpha"			= "包含 Alpha";
+"ColorModel"			= "颜色模型";
+"ProfileName"			= "配置文件名称";
+
+/* Possible values for type identifier */
+
+"public.tiff"			= "TIFF";
+"public.fax"			= "传真";
+"public.jpeg"			= "JPEG";
+"public.jpeg-2000"		= "JPEG -2000";
+"public.png"			= "PNG";
+"public.radiance"		= "Radiance";
+"public.xbitmap-image"          = "X 位图";
+
+"com.apple.pict"		= "PICT";
+"com.apple.quicktime-image"	= "QuickTime";
+"com.apple.macpaint-image"      = "MacPaint";
+"com.apple.icns"		= "ICNS";
+
+"com.adobe.pdf"			= "PDF";
+"com.adobe.photoshop-image"	= "Photoshop";
+
+"com.compuserve.gif"		= "gif";
+"com.ilm.openexr-image"		= "openexr";
+"com.microsoft.ico"		= "ICO";
+"com.microsoft.bmp"		= "BMP";
+"com.sgi.sgi-image"		= "SGI";
+"com.truevision.tga-image"	= "TGA";
+"com.kodak.flashpix-image"      = "Flashpix";
+
+"public.camera-raw-image"       = "相机 Raw";
+"com.adobe.raw-image"		= "Adobe Raw";
+"com.canon.crw-raw-image"       = "Canon CRW Raw";
+"com.canon.cr2-raw-image"       = "Canon CR2 Raw";
+"com.canon.tif-raw-image"       = "Canon TIF Raw";
+"com.nikon.raw-image"		= "Nikon Raw";
+"com.canon.raw-image"		= "Canon Raw";
+"com.olympus.raw-image"		= "Olympus Raw";
+"com.fuji.raw-image"		= "Fuji Raw";
+"com.sony.raw-image"		= "Sony Raw";
+"com.konicaminolta.raw-image"   = "Konica Minolta Raw";
+"com.kodak.raw-image"		= "Kodak Raw";
+
+/* Possible values for kCGImagePropertyColorModel property */
+
+"RGB"				= "RGB";
+"Gray"				= "灰度";
+"CMYK"				= "CMYK";
+"Lab"				= "å¯¦é©å®¤";
+
+/* Possible keys for kCGImagePropertyTIFFDictionary */
+
+"Compression"			= "压缩";
+"PhotometricInterpretation"	= "光度解释";
+"DocumentName"			= "文档名称";
+"ImageDescription"		= "图像描述";
+"Make"				= "制造商";
+"Model"				= "型号";
+/*"Orientation"			= "方向";*/
+"XResolution"			= "X 分辨率";
+"YResolution"			= "Y 分辨率";
+"ResolutionUnit"		= "分辨率单位";
+"Software"			= "软件";
+"TransferFunction"		= "传输函数";
+"DateTime"			= "日期时间";
+"Artist"			= "艺术家";
+"HostComputer"			= "主机";
+"Copyright"			= "版权";
+"WhitePoint"			= "白点";
+"PrimaryChromaticities"		= "原色色度";
+"sRGBIntent"			= "sRGB 意图";
+"Chromaticities"		= "色度";
+
+/* Possible keys for kCGImagePropertyJFIFDictionary */
+
+"JFIFVersion"			= "JFIF 版本";
+"XDensity"			= "X 密度";
+"YDensity"			= "Y 密度";
+"DensityUnit"			= "密度单位";
+
+/* Possible keys for kCGImagePropertyExifDictionary */
+
+"ExposureTime"			= "曝光时间";
+"FNumber"			= "F 值";
+"ExposureProgram"		= "曝光程序";
+"SpectralSensitivity"		= "光谱灵敏度";
+"ISOSpeedRatings"		= "ISO 感光度等级";
+"OECF"				= "OECF";
+"ExifVersion"			= "Exif 版本";
+"DateTimeOriginal"		= "原始日期时间";
+"DateTimeDigitized"		= "数字化日期时间";
+"ComponentsConfiguration"       = "组件配置";
+"CompressedBitsPerPixel"	= "每像素压缩位数";
+"ShutterSpeedValue"		= "快门速度值";
+"ApertureValue"			= "光圈值";
+"BrightnessValue"		= "亮度值";
+"ExposureBiasValue"		= "曝光补偿值";
+"MaxApertureValue"		= "最大光圈值";
+"SubjectDistance"		= "主体距离";
+"MeteringMode"			= "测光模式";
+"LightSource"			= "光源";
+"Flash"				= "闪光灯";
+"FocalLength"			= "焦距";
+"SubjectArea"			= "主体区域";
+"MakerNote"			= "制造商注释";
+"UserComment"			= "用户注释";
+"SubsecTime"			= "亚秒时间";
+"SubsecTimeOrginal"		= "原始亚秒时间";
+"SubsecTimeDigitized"		= "数字化亚秒时间";
+"FlashPixVersion"		= "FlashPix 版本";
+"ColorSpace"			= "颜色空间";
+"PixelXDimension"		= "像素 X 尺寸";
+"PixelYDimension"		= "像素 Y 尺寸";
+"RelatedSoundFile"		= "相关声音文件";
+"FlashEnergy"			= "闪光灯能量";
+"SpatialFrequencyResponse"      = "空间频率响应";
+"FocalPlaneXResolution"		= "焦平面 X 分辨率";
+"FocalPlaneYResolution"		= "焦平面 Y 分辨率";
+"FocalPlaneResolutionUnit"      = "焦平面分辨率单位";
+"SubjectLocation"		= "主体位置";
+"ExposureIndex"			= "曝光指数";
+"SensingMethod"			= "感应方式";
+"FileSource"			= "文件来源";
+"SceneType"			= "场景类型";
+"CFAPattern"			= "CFA 图案";
+"CustomRendered"		= "自定义渲染";
+"ExposureMode"			= "曝光模式";
+"WhiteBalance"			= "白平衡";
+"DigitalZoomRatio"		= "数码变焦比率";
+"FocalLenIn35mmFilm"		= "35mm 胶片等效焦距";
+"SceneCaptureType"		= "场景捕捉类型";
+"GainControl"			= "增益控制";
+"Contrast"			= "对比度";
+"Saturation"			= "饱和度";
+"Sharpness"			= "锐度";
+"DeviceSettingDescription"      = "设备设置描述";
+"SubjectDistRange"		= "主体距离范围";
+"ImageUniqueID"			= "图像唯一 ID";
+/*"Gamma"			= "Gamma";*/
+
+/* Possible keys for kCGImagePropertyGIFDictionary */
+
+"LoopCount"			= "循环次数";
+"DelayTime"			= "延迟时间";
+"ImageColorMap"			= "图像色彩图";
+"HasGlobalColorMap"		= "含全局色彩图";
+
+/* Possible keys for kCGImagePropertyPNGDictionary */
+
+"Gamma"				= "Gamma";
+"InterlaceType"			= "交错类型";
+"XPixelsPerMeter"		= "每米 X 像素";
+"YPixelsPerMeter"		= "每米 Y 像素";
+
+/* Possible keys for kCGImagePropertyGPSDictionary */
+
+"GPSVersion"			= "GPS 版本";
+"LatitudeRef"			= "纬度参考";
+"Latitude"			= "纬度";
+"LongitudeRef"			= "经度参考";
+"Longitude"			= "经度";
+"AltitudeRef"			= "高度参考";
+"Altitude"			= "高度";
+"TimeStamp"			= "时间戳";
+"Satellites"			= "卫星";
+"Status"			= "状态";
+"MeasureMode"			= "测量模式";
+"DOP"				= "精度因子";
+"SpeedRef"			= "速度参考";
+"Speed"				= "速度";
+"TrackRef"			= "轨迹参考";
+"Track"				= "轨迹";
+"ImgDirectionRef"		= "图像方向参考";
+"ImgDirection"			= "图像方向";
+"MapDatum"			= "地图基准";
+"DestLatitudeRef"		= "目标纬度参考";
+"DestLatitude"			= "目标纬度";
+"DestLongitudeRef"		= "目标经度参考";
+"DestLongitude"			= "目标经度";
+"DestBearingRef"		= "目标方位参考";
+"DestBearing"			= "目标方位";
+"DestDistanceRef"		= "目标距离参考";
+"DestDistance"			= "目标距离";
+"ProcessingMethod"		= "处理方法";
+"AreaInformation"		= "区域信息";
+"DateStamp"			= "日期戳";
+"Differental"			= "差分";
+
+/* Possible keys for kCGImagePropertyIPTCDictionary */
+
+"ObjectTypeReference"		= "对象类型参考";
+"ObjectAttributeReference"	= "对象属性参考";
+"ObjectName"			= "对象名称";
+"EditStatus"			= "编辑状态";
+"EditorialUpdate"		= "编辑更新";
+"Urgency"			= "紧急程度";
+"SubjectReference"		= "主题参考";
+"Category"			= "类别";
+"SupplementalCategory"		= "补充类别";
+"FixtureIdentifier"		= "固定标识符";
+"Keywords"			= "关键词";
+"ContentLocationCode"		= "内容位置代码";
+"ContentLocationName"		= "内容位置名称";
+"ReleaseDate"			= "发布日期";
+"ReleaseTime"			= "发布时间";
+"ExpirationDate"		= "过期日期";
+"ExpirationTime"		= "过期时间";
+"SpecialInstructions"		= "特殊说明";
+"ActionAdvised"			= "建议操作";
+"ReferenceService"		= "参考服务";
+"ReferenceDate"			= "参考日期";
+"ReferenceNumber"		= "参考编号";
+"DateCreated"			= "创建日期";
+"TimeCreated"			= "创建时间";
+"DigitalCreationDate"		= "数字创建日期";
+"DigitalCreationTime"		= "数字创建时间";
+"OriginatingProgram"		= "原始程序";
+"ProgramVersion"		= "程序版本";
+"ObjectCycle"			= "对象周期";
+"Byline"			= "署名";
+"BylineTitle"			= "署名标题";
+"City"				= "城市";
+"SubLocation"			= "子位置";
+"Province/State"		= "省/州";
+"Country/PrimaryLocationCode"	= "国家/主要位置代码";
+"Country/PrimaryLocationName"	= "国家/主要位置名称";
+"OriginalTransmissionReference"	= "原始传输参考";
+"Headline"			= "标题";
+"Credit"			= "鸣谢";
+"Source"			= "来源";
+"CopyrightNotice"		= "版权声明";
+"Contact"			= "联系人";
+"Caption/Abstract"		= "说明/摘要";
+"Writer/Editor"			= "作者/编辑";
+"ImageType"			= "图像类型";
+"ImageOrientation"		= "图像方向";
+"LanguageIdentifier"		= "语言标识符";
+
+/* Possible keys for kCGImageProperty8BIMDictionary */
+
+"LayerNames"			= "图层名称";
+
+/*"Image Width" = "åç´ å¯¬åº¦";
+"Image Height" = "åç´ é«åº¦";
+"Number of Bits Per Component" = "Number of Bits Per Component";
+"Compression Scheme" = "Compression Scheme";
+"Pixel Composition" = "Pixel Composition";
+"FillOrder" = "FillOrder";
+"DocumentName" = "文档名称";
+"Title" = "Title";
+"Equipment Make" = "è£½ä½";
+"Camera Model" = "åè";
+"Image Data Location" = "Image Data Location";
+"Image Orientation" = "Image Orientation";
+"Number of Components" = "Number of Components";
+"Number of Rows Per Strip" = "Number of Rows Per Strip";
+"Bytes per Compressed Strip" = "Bytes per Compressed Strip";
+"Horizontal Resolution" = "Horizontal Resolution";
+"Vertical Resolution" = "Vertical Resolution";
+"Image Data Arrangement" = "Image Data Arrangement";
+"Resolution Unit" = "Resolution Unit";
+"Transfer Function" = "Transfer Function";
+"Camera Software" = "Camera Software";
+"Image Created" = "Image Created";
+"Photographer" = "Photographer";
+"White Point Chromaticity" = "White Point Chromaticity";
+"Chromaticities of Primary Colors" = "Chromaticities of Primary Colors";
+"TransferRange" = "TransferRange";
+"JPEGProc" = "JPEGProc";
+"Offset to JPEG SOI" = "Offset to JPEG SOI";
+"Bytes of JPEG Data" = "Bytes of JPEG Data";
+"Color Space Xform Matrix Coeff's" = "Color Space Xform Matrix Coeff's";
+"Chrominance Comp Samp Ratio" = "Chrominance Comp Samp Ratio";
+"Chrominance Comp Positioning" = "Chrominance Comp Positioning";
+"Black and White Ref Point Values" = "Black and White Ref Point Values";
+"CFARepeatPatternDim" = "CFARepeatPatternDim";
+"CFAPattern" = "CFA 图案";
+"BatteryLevel" = "BatteryLevel";
+"Copyright" = "版权";
+"Exposure Time" = "Exposure Time";
+"F-Number" = "F-Number";
+"IPTC/NAA" = "IPTC/NAA";
+"Exif IFD Pointer" = "Exif IFD Pointer";
+"InterColorProfile" = "InterColorProfile";
+"Exposure Program" = "Exposure Program";
+"Spectral Sensitivity" = "Spectral Sensitivity";
+"GPS Info IFD Pointer" = "GPS Info IFD Pointer";
+"ISO Speed Rating" = "ISO Speed Rating";
+"Opto-Electric Conversion Factor" = "Opto-Electric Conversion Factor";
+"Exif Version" = "Exif Version";
+"Image Generated" = "Image Generated";
+"Image Digitized" = "Image Digitized";
+"Meaning of Each Comp" = "Meaning of Each Comp";
+"Image Compression Mode" = "Image Compression Mode";
+"Shutter Speed" = "Shutter Speed";
+"Lens Aperture" = "Lens Aperture";
+"Brightness" = "Brightness";
+"Exposure Bias" = "Exposure Bias";
+"Maximum Lens Aperture" = "Maximum Lens Aperture";
+"Subject Distance" = "Subject Distance";
+"Metering Mode" = "Metering Mode";
+"Light Source" = "Light Source";
+"Flash" = "闪光灯";
+"Focal Length" = "Focal Length";
+"Subject Area" = "Subject Area";
+"Manufacturer Notes" = "Manufacturer Notes";
+"Comment" = "Comment";
+"DateTime Second Fraction" = "DateTime Second Fraction";
+"DateTimeOriginal Second Fraction" = "DateTimeOriginal Second Fraction";
+"DateTimeDigitized Second Fraction" = "DateTimeDigitized Second Fraction";
+"Supported FlashPix Version" = "Supported FlashPix Version";
+"Color Space Information" = "Color Space Information";
+"Image Width" = "Image Width";
+"Image Height" = "Image Height";
+"Related Audio File" = "Related Audio File";
+"Interoperability IFD Pointer" = "Interoperability IFD Pointer";
+"Flash Energy" = "Flash Energy";
+"Spatial Frequency Response" = "Spatial Frequency Response";
+"Focal Plane Horiz Resolution" = "Focal Plane Horiz Resolution";
+"Focal Plane Vert Resolution" = "Focal Plane Vert Resolution";
+"Focal Plane Res Unit" = "Focal Plane Res Unit";
+"Subject Location" = "Subject Location";
+"Exposure Index" = "Exposure Index";
+"Sensing Method" = "Sensing Method";
+"File Source" = "File Source";
+"Scene Type" = "Scene Type";
+"Color Filter Array Pattern" = "Color Filter Array Pattern";
+"Rendering" = "Rendering";
+"Exposure Mode" = "Exposure Mode";
+"White Balance" = "White Balance";
+"Digital Zoom Ratio" = "Digital Zoom Ratio";
+"Focal Length (35mm Equiv)" = "Focal Length (35mm Equiv)";
+"Scene Capture Type" = "Scene Capture Type";
+"Gain Control" = "Gain Control";
+"Contrast" = "对比度";
+"Saturation" = "饱和度";
+"Sharpness" = "锐度";
+"Device Settings" = "Device Settings";
+"Subject Distance Range" = "Subject Distance Range";
+"Unique Image ID" = "Unique Image ID";
+"Gamma Coefficient" = "Gamma Coefficient";
+"Unknown" = "Unknown";*/

@@ -40,6 +40,12 @@
             "state" : "translated",
             "value" : "深色"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深色"
+          }
         }
       }
     },
@@ -81,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "系統"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系统"
           }
         }
       }
@@ -124,6 +136,12 @@
             "state" : "translated",
             "value" : "播放幻燈秀"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始幻灯片放映"
+          }
         }
       }
     },
@@ -165,6 +183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "打開新瀏覽視窗（如沒有）"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有窗口时打开新的浏览窗口"
           }
         }
       }
@@ -208,6 +232,12 @@
             "state" : "translated",
             "value" : "視窗裡"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "窗口"
+          }
         }
       }
     },
@@ -249,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不要自動前往"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不要自动前进"
           }
         }
       }
@@ -292,6 +328,12 @@
             "state" : "translated",
             "value" : "偏好設定"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "偏好设置"
+          }
         }
       }
     },
@@ -333,6 +375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "前往所選的檔案夾："
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往指定文件夹:"
           }
         }
       }
@@ -376,6 +424,12 @@
             "state" : "translated",
             "value" : "前往最近使用的檔案夾"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前往最近访问的文件夹"
+          }
         }
       }
     },
@@ -418,6 +472,12 @@
             "state" : "translated",
             "value" : "下次檢查: %{value1}@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下次检查: %{value1}@"
+          }
         }
       }
     },
@@ -450,6 +510,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Box"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Box"
@@ -496,6 +562,12 @@
             "state" : "translated",
             "value" : "一般"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通用"
+          }
         }
       }
     },
@@ -538,6 +610,12 @@
             "state" : "translated",
             "value" : "幻燈片"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "幻灯片"
+          }
         }
       }
     },
@@ -574,6 +652,12 @@
             "state" : "translated",
             "value" : "Box"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Box"
+          }
         }
       }
     },
@@ -606,6 +690,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Box"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Box"
@@ -652,6 +742,12 @@
             "state" : "translated",
             "value" : "160"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "160"
+          }
         }
       }
     },
@@ -690,6 +786,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "320"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "320"
@@ -736,6 +838,12 @@
             "state" : "translated",
             "value" : "512"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "512"
+          }
         }
       }
     },
@@ -778,6 +886,12 @@
             "state" : "translated",
             "value" : "開啟新視窗時："
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开新窗口时:"
+          }
         }
       }
     },
@@ -816,6 +930,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "~/Pictures"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "~/Pictures"
@@ -862,6 +982,12 @@
             "state" : "translated",
             "value" : "選取⋯"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择..."
+          }
         }
       }
     },
@@ -903,6 +1029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動檢查更新"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动检查更新"
           }
         }
       }
@@ -946,6 +1078,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下次检查时间 2020.01.01"
+          }
         }
       }
     },
@@ -987,6 +1125,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "執行無失真JPEG轉換時不要更改檔案修改日期"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "执行无损 JPEG 转换时不更改修改日期"
           }
         }
       }
@@ -1030,6 +1174,12 @@
             "state" : "translated",
             "value" : "縮覽圖背景顏色"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缩略图背景颜色"
+          }
         }
       }
     },
@@ -1071,6 +1221,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "允許搬移檔案、製作替身"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许移动文件/创建替身"
           }
         }
       }
@@ -1114,6 +1270,12 @@
             "state" : "translated",
             "value" : "最大縮覽圖寬度"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最大缩略图宽度"
+          }
         }
       }
     },
@@ -1155,6 +1317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "每"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每隔"
           }
         }
       }
@@ -1198,6 +1366,12 @@
             "state" : "translated",
             "value" : "幻燈秀預設："
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "幻灯片默认设置:"
+          }
         }
       }
     },
@@ -1239,6 +1413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "秒自動前往"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒"
           }
         }
       }
@@ -1282,6 +1462,12 @@
             "state" : "translated",
             "value" : "循環"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "循环"
+          }
         }
       }
     },
@@ -1323,6 +1509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隨機"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随机"
           }
         }
       }
@@ -1366,6 +1558,12 @@
             "state" : "translated",
             "value" : "將小影像放大"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "放大小图像"
+          }
         }
       }
     },
@@ -1407,6 +1605,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "以實際大小顯示大影像"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以实际大小显示大图像"
           }
         }
       }
@@ -1450,6 +1654,12 @@
             "state" : "translated",
             "value" : "立即套用設定"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用设置"
+          }
         }
       }
     },
@@ -1491,6 +1701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "背景顏色及透明度"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "背景颜色/透明度"
           }
         }
       }
@@ -1534,6 +1750,12 @@
             "state" : "translated",
             "value" : "Radio"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单选"
+          }
         }
       }
     },
@@ -1575,6 +1797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "循環時再次隨機化"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "循环时重新随机"
           }
         }
       }
@@ -1618,6 +1846,12 @@
             "state" : "translated",
             "value" : "啟動時："
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动时:"
+          }
         }
       }
     },
@@ -1659,6 +1893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不要開新視窗"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不要打开新窗口"
           }
         }
       }
@@ -1702,6 +1942,12 @@
             "state" : "translated",
             "value" : "用以上的檔案夾播放幻燈秀"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用上方所选文件夹开始幻灯片放映"
+          }
         }
       }
     },
@@ -1743,6 +1989,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "調整視窗大小以適應影像"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调整窗口大小以适合图像"
           }
         }
       }
@@ -1786,6 +2038,12 @@
             "state" : "translated",
             "value" : "啟用"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用"
+          }
         }
       }
     },
@@ -1827,6 +2085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "文件種類"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件类型"
           }
         }
       }
@@ -1870,6 +2134,12 @@
             "state" : "translated",
             "value" : "選擇 0% 不透明度的顏色以使用幻燈片或瀏覽視窗的背景顏色。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择 0% 不透明度的颜色，以使用幻灯片/浏览器背景颜色。"
+          }
         }
       }
     },
@@ -1912,6 +2182,12 @@
             "state" : "translated",
             "value" : "預設模式："
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认模式:"
+          }
         }
       }
     },
@@ -1950,6 +2226,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "描述"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "描述"
@@ -1996,6 +2278,12 @@
             "state" : "translated",
             "value" : "透明影像的背景顏色"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "透明图像背景颜色"
+          }
         }
       }
     },
@@ -2037,6 +2325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "從 Finder 打開檔案時："
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从 Finder 打开文件时:"
           }
         }
       }
@@ -2080,6 +2374,12 @@
             "state" : "translated",
             "value" : "次檔案夾"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "子文件夹"
+          }
         }
       }
     },
@@ -2121,6 +2421,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全螢幕"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全屏"
           }
         }
       }
@@ -2164,6 +2470,12 @@
             "state" : "translated",
             "value" : "在視窗裡播放幻燈片"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在窗口中开始幻灯片放映"
+          }
         }
       }
     },
@@ -2205,6 +2517,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "外觀"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外观:"
           }
         }
       }
@@ -2248,6 +2566,12 @@
             "state" : "translated",
             "value" : "淺色"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浅色"
+          }
         }
       }
     },
@@ -2289,6 +2613,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "副檔名"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文件类型"
           }
         }
       }

@@ -33,6 +33,12 @@
             "state" : "translated",
             "value" : " 已水平翻轉"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 已翻转"
+          }
         }
       }
     },
@@ -64,6 +70,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向左"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "向左"
@@ -102,6 +114,12 @@
             "state" : "translated",
             "value" : "向右"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "向右"
+          }
         }
       }
     },
@@ -136,6 +154,12 @@
             "state" : "translated",
             "value" : " 已%@旋轉 %i%C"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 已%@旋转 %i%C"
+          }
         }
       }
     },
@@ -169,6 +193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已選取 %d 個項目"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已选择 %d 张图像。"
           }
         }
       }
@@ -258,6 +288,12 @@
             "state" : "translated",
             "value" : "%lu 個檔案不能還原，因為發生了錯誤"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法移回 %lu 个文件。"
+          }
         }
       }
     },
@@ -346,6 +382,12 @@
             "state" : "translated",
             "value" : "%lu 個檔案不能從垃圾桶還原，因為發生了錯誤"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法从废纸篓恢复 %lu 个文件。请检查废纸篓。"
+          }
         }
       }
     },
@@ -380,6 +422,12 @@
             "state" : "translated",
             "value" : "%lu 個檔案不能拷貝，因為發生了錯誤。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法复制 %lu 个文件。"
+          }
         }
       }
     },
@@ -413,6 +461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lu 個檔案不能搬移，因為發生了錯誤。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法移动 %lu 个文件。"
           }
         }
       }
@@ -564,6 +618,34 @@
             "state" : "translated",
             "value" : "已更改 %1$u 張圖片的組%2$i歸類"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已更新第 %2$i 组中的 %#@arg1@"
+          },
+          "substitutions" : {
+            "arg1" : {
+              "argNum" : 1,
+              "formatSpecifier" : "u",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg 张图像"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg 张图像"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -665,6 +747,12 @@
             "state" : "translated",
             "value" : "%u 張圖片"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%u 张图像"
+          }
         }
       }
     },
@@ -699,6 +787,12 @@
             "state" : "translated",
             "value" : "有新版本的Phoenix Slides。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phoenix Slides 有新版本可用。"
+          }
         }
       }
     },
@@ -729,6 +823,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "替身"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "替身"
@@ -767,6 +867,12 @@
             "state" : "translated",
             "value" : " 自動往前"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 自动前进"
+          }
         }
       }
     },
@@ -801,6 +907,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "播放幻燈片（全螢幕）"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开始幻灯片放映(全屏)"
           }
         }
       }
@@ -837,6 +949,12 @@
             "state" : "translated",
             "value" : "在視窗裡播放幻燈片"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在窗口中开始幻灯片放映"
+          }
         }
       }
     },
@@ -871,6 +989,12 @@
             "state" : "translated",
             "value" : "相機屬性：\n"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相机特定属性:\n"
+          }
         }
       }
     },
@@ -901,6 +1025,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
@@ -939,6 +1069,12 @@
             "state" : "translated",
             "value" : "繼續"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续"
+          }
         }
       }
     },
@@ -974,6 +1110,12 @@
             "state" : "translated",
             "value" : "再次拷貝到「%@」"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再次复制到“%@”"
+          }
         }
       }
     },
@@ -1007,6 +1149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檢查更新﹣連接伺服器發生錯誤。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法检查更新 - 连接服务器时发生错误。"
           }
         }
       }
@@ -1042,6 +1190,12 @@
             "state" : "translated",
             "value" : "檢查更新時伺服器回應有問題。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法检查更新 - 服务器响应发生错误。"
+          }
         }
       }
     },
@@ -1076,6 +1230,12 @@
             "state" : "translated",
             "value" : "檢查更新﹣不能連接伺服器。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法检查更新 - 无法连接服务器。"
+          }
         }
       }
     },
@@ -1109,6 +1269,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不能設定桌面，因為發生了錯誤。%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法设置桌面。%@"
           }
         }
       }
@@ -1145,6 +1311,12 @@
             "state" : "translated",
             "value" : "立即刪除"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除"
+          }
         }
       }
     },
@@ -1179,6 +1351,12 @@
             "state" : "translated",
             "value" : "幻燈片播放完畢（最後的檔案己被刪除）"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "幻灯片放映结束(最后一个文件已被删除)"
+          }
         }
       }
     },
@@ -1212,6 +1390,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在讀取檔案名稱⋯⋯"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在获取文件名..."
           }
         }
       }
@@ -1248,6 +1432,12 @@
             "state" : "translated",
             "value" : "明白"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "知道了"
+          }
         }
       }
     },
@@ -1282,6 +1472,12 @@
             "state" : "translated",
             "value" : "組%i"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第 %i 组"
+          }
         }
       }
     },
@@ -1312,6 +1508,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高度"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "高度"
@@ -1350,6 +1552,12 @@
             "state" : "translated",
             "value" : "請按 'h' 鍵盤以顯示幻燈片的簡單說明。"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按 'h' 键可查看幻灯片放映期间可用的快捷键列表。"
+          }
         }
       }
     },
@@ -1384,6 +1592,12 @@
             "state" : "translated",
             "value" : "影像屬性：\n"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "图像特定属性:\n"
+          }
         }
       }
     },
@@ -1417,6 +1631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "JPEG 註解：\n"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JPEG 注释:\n"
           }
         }
       }
@@ -1458,6 +1678,12 @@
             "state" : "translated",
             "value" : "正在讀取 [%i/%i] %@⋯⋯"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在载入 [%i/%i] %@..."
+          }
         }
       }
     },
@@ -1491,6 +1717,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在讀取 %2$lu 之 %1$lu⋯⋯"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在载入第 %1$lu 个，共 %2$lu 个..."
           }
         }
       }
@@ -1526,6 +1758,12 @@
             "state" : "translated",
             "value" : "更多資訊"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更多信息"
+          }
         }
       }
     },
@@ -1560,6 +1798,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搬移檔案"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移动文件"
           }
         }
       }
@@ -1650,6 +1894,12 @@
             "state" : "translated",
             "value" : "搬移檔案（%lu 個檔案）"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移动文件(%lu 个文件)"
+          }
         }
       }
     },
@@ -1685,6 +1935,12 @@
             "state" : "translated",
             "value" : "再次搬移到「%@」"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再次移动到“%@”"
+          }
         }
       }
     },
@@ -1718,6 +1974,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "丟到垃圾桶"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移到废纸篓"
           }
         }
       }
@@ -1808,6 +2070,12 @@
             "state" : "translated",
             "value" : "丟到垃圾桶（%lu 個檔案）"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移到废纸篓(%lu 个文件)"
+          }
         }
       }
     },
@@ -1843,6 +2111,12 @@
             "state" : "translated",
             "value" : "找不到任何圖片檔案："
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到图像文件: "
+          }
         }
       }
     },
@@ -1876,6 +2150,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "沒有所選項目"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未选择图像。"
           }
         }
       }
@@ -1911,6 +2191,12 @@
             "state" : "translated",
             "value" : "無應用程式可打開此檔案"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可用应用程序"
+          }
         }
       }
     },
@@ -1944,6 +2230,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暫緩"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稍后"
           }
         }
       }
@@ -1980,6 +2272,12 @@
             "state" : "translated",
             "value" : "在 Finder 打開 %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中打开“%@”"
+          }
         }
       }
     },
@@ -2013,6 +2311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "其他屬性：\n"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他属性:\n"
           }
         }
       }
@@ -2048,6 +2352,12 @@
             "state" : "translated",
             "value" : "暫停"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已暂停"
+          }
         }
       }
     },
@@ -2081,6 +2391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "漸進 JPEG 檔案\n"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "渐进式 JPEG 文件\n"
           }
         }
       }
@@ -2123,6 +2439,12 @@
             "state" : "translated",
             "value" : "秒"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "秒"
+          }
         }
       }
     },
@@ -2157,6 +2479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "立即顯示"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
           }
         }
       }
@@ -2193,6 +2521,12 @@
             "state" : "translated",
             "value" : "略過"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳过"
+          }
         }
       }
     },
@@ -2227,6 +2561,12 @@
             "state" : "translated",
             "value" : "正在排列 %lu 個檔案名稱⋯⋯"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在排序 %lu 个文件名..."
+          }
         }
       }
     },
@@ -2260,6 +2600,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檔案 %@ 不能拷貝，因為發生了錯誤：%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法复制文件“%@”: %@"
           }
         }
       }
@@ -2301,6 +2647,12 @@
             "state" : "translated",
             "value" : "檔案 %@ 不能搬移，因為發生了錯誤：%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法移动文件“%@”: %@"
+          }
         }
       }
     },
@@ -2340,6 +2692,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "檔案 %@ 不能從垃圾桶還原，因為發生了錯誤：%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法从废纸篓恢复文件“%@”: %@"
           }
         }
       }
@@ -2381,6 +2739,12 @@
             "state" : "translated",
             "value" : "檔案 %1$@ 不能刪除，因為發生了錯誤：%2$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法删除文件 %1$@: %2$@"
+          }
         }
       }
     },
@@ -2421,6 +2785,12 @@
             "state" : "translated",
             "value" : "檔案 %1$@ 不能移到垃圾桶，因為發生了錯誤：%2$@\n\n你想立即刪除檔案嗎？此動作不能還原!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于发生错误，无法将文件 %1$@ 移到废纸篓: %2$@\n\n要立即删除该文件吗？此操作无法撤销！"
+          }
         }
       }
     },
@@ -2454,6 +2824,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此動作不能還原。確定要繼續?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此操作无法撤销！确定要继续吗？"
           }
         }
       }
@@ -2489,6 +2865,12 @@
             "state" : "translated",
             "value" : "不支援的屬性：\n"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不支持的属性:\n"
+          }
         }
       }
     },
@@ -2519,6 +2901,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "警告"
@@ -2557,6 +2945,12 @@
             "state" : "translated",
             "value" : "歡迎使用 Phoenix Slides"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎使用 Phoenix Slides！"
+          }
         }
       }
     },
@@ -2591,6 +2985,12 @@
             "state" : "translated",
             "value" : "寬度"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "宽度"
+          }
         }
       }
     },
@@ -2624,6 +3024,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你正在使用最新版本的Phoenix Slides。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你正在使用最新版本的 Phoenix Slides。"
           }
         }
       }

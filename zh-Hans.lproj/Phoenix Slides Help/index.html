@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>Phoenix Slides 帮助</title>
+	<meta name="AppleTitle" content="Phoenix Slides 帮助">
+</head>
+<body>
+<h1>Phoenix Slides 帮助</h1>
+<h2>简介</h2>
+<p>Phoenix Slides 是一个图片浏览及查看工具，其功能包括全屏幻灯片、
+无损 JPEG文件转换、和EXIF 信息显示。此应用程序需要 macOS 10.13 或更高版本。</p>
+
+<p>首先要对读者抱歉，我的中文不好……有人愿意帮我翻译吗？</p>
+
+Contents:
+<ul>
+	<li><a href="#usage">使用方法</a></li>
+	<li><a href="#slides">幻灯片</a></li>
+	<li><a href="#jpeg">JPEG 转换</a></li>
+	<li><a href="#cats">图像分组/分类</a></li>
+	<li><a href="#story">Phoenix Slides的故事</a></li>
+	<li><a href="#ack">致谢</a></li>
+	<li><a href="#contact">联系方式</a></li>
+</ul>
+
+版本历史(英文)：
+<ul>
+	<li><a href="../../version.html">Phoenix Slides Version History</a></li>
+</ul>
+
+<h2><a name="usage"></a>使用方法</h2>
+<p>你可以用窗口顶部的文件夹浏览表进入某个文件夹，
+也可以直接把文件夹或文件夹里面的任何文件拖到窗口上。
+若要播放幻灯片，你可以按“幻灯片”一下，或按一个缩略图两下。
+</p>
+
+<h3>文件夹浏览表</h3>
+<p>除了用鼠标按，你也可以用键盘打字来进入一个文件夹。</p>
+
+<p>文件夹浏览表的第一栏列出目前所挂载的磁盘和卷宗。
+当卷宗被挂载或退出，或者目前所选的文件夹被移动或重新命名时，
+文件夹浏览表会自动更新。在其他情形下，你可以按一下一个文件夹的名称，
+以更新其内容。
+</p>
+
+<p>你可以按一下“子文件夹”来查找文件夹里的所有图档,包括子文件夹里图档。
+你可以用这个功能查看应用程序套件内容的图像，很好玩。
+</p>
+
+<h3>缩略图</h3>
+<p>当你进入一个文件夹时，Phoenix Slides会先查找该文件夹里的图档，
+然后开始生成缩略图。缩略图将会缓存于记忆体，退出应用程序时便会被丢弃。
+</p>
+
+<h3>选择图像</h3>
+<p>你可以用鼠标选择图像。如果刚好选了一个图像，你也可以用箭头键选择图像。
+</p>
+
+<h3>拖动图像</h3>
+你可以将图像拖动到另外一个应用程序，让该应用程序打开文件，
+或拖动到Finder以复制文件。
+
+
+<h2><a name="slides"></a>幻灯片</h2>
+<p>开始幻灯片时：</p>
+<ul>
+	<li>若无所选项目，播放所有图像的幻灯片。</li>
+	<li>若选了一个项目，从所选的图像开始播放所有图像的幻灯片。</li>
+	<li>若选了数个项目，播放所选图像的幻灯片。</li>
+</ul>
+
+<h3>幻灯片播放时</h3>
+<p>请用键盘控制幻灯片。请打'h'或'?'键显示简单的说明。
+</p>
+
+<p>请打1-9键幻灯片自动前进(每1-9秒)。打空白键来暂停；返回或打'0'键停止。
+</p>
+
+<h3>幻灯片快捷键说明</h3>
+<table>
+<tr><td>空白键</td><td>暂停/继续自动前进；前进</td></tr>
+<tr><td>&rarr;&darr;</td><td>前进</td></tr>
+<tr><td>&larr;&uarr;</td><td>返回</td></tr>
+<tr><td>page down</td><td>前进十张</td></tr>
+<tr><td>page up</td><td>后退十张</td></tr>
+<tr><td>home</td><td>回到第一张</td></tr>
+<tr><td>end</td><td>最后一张</td></tr>
+<tr><td>0</td><td>取消自动前进</td></tr>
+<tr><td>1-9</td><td>每 n 秒自动前进</td></tr>
+<tr><td>!</td><td>每半秒自动前进</td></tr>
+<tr><td>h, ?</td><td>显示／隐藏帮助</td></tr>
+<tr><td>i</td><td>显示／隐藏文件名</td></tr>
+<tr><td>&#8679;I</td><td>显示更多EXIF属性</td></tr>
+<tr><td>F2-F12</td><td>放入第 n 组</td></tr>
+<tr><td>&#8984;F2-F12</td><td>切换分组类别</td></tr>
+<tr><td>F1</td><td>移除分组</td></tr>
+<tr><td>r</td><td>向右旋转</td></tr>
+<tr><td>l</td><td>向左旋转</td></tr>
+<tr><td>&#8984;E</td><td>将小图像放大</td></tr>
+<tr><td>+/-</td><td>放大/缩小</td></tr>
+<tr><td>=</td><td>实际大小</td></tr>
+<tr><td>*</td><td>缩放至合适大小</td></tr>
+<tr><td>数字小键盘1-9</td><td>滚动查看已放大的图像</td></tr>
+<tr><td>esc, q</td><td>退出幻灯片</td></tr>
+</table>
+
+<h2><a name="jpeg"></a>JPEG 转换</h2>
+<p>Phoenix Slides用jpegtran(包EXIF patch)来执行无损 JPEG 转换。
+</p>
+
+<p>删除无法转换的边缘数据块 - 无损 JPEG旋转不一定是完美的。
+如果图像的大小不是iMCU数据块大小的倍数(通常是8或16)，
+侧边的数据块就无法转换了。你可以通过高级选项删除这些数据块。
+当然这个动作无法撤销。详情请参阅jpegtran说明:</p>
+
+<pre>jpegtran's default behavior when transforming an odd-size image is designed
+to preserve exact reversibility and mathematical consistency of the
+transformation set.... Transpose is able to flip the entire image
+area. Horizontal mirroring leaves any partial iMCU column at the right edge
+untouched, but is able to flip all rows of the image. Similarly, vertical
+mirroring leaves any partial iMCU row at the bottom edge untouched, but is
+able to flip all columns. The other transforms can be built up as sequences
+of transpose and flip operations; for consistency, their actions on edge
+pixels are defined to be the same as the end result of the corresponding
+transpose-and-flip sequence.
+</pre>
+
+<h2><a name="cats"></a>图像分组/分类</h2>
+
+<p>幻灯片播放时，你可以打F2-F12键将图像放进一个分组里，
+然后在浏览窗口里再打F2-F12，查看一个分组内的图像。
+你也可以用&#8984;F2-F12 来切换图像的分组类别。
+这个功能很方便，你可以先选择很多图像，然后一起把它们旋转或执行其他动作。
+</p>
+
+<h2><a name="story"></a>Phoenix Slides的故事</h2>
+<p>有一天，马教授带了几张CD到办公室，CD上有他在泰国拍的照片。
+“我们来看这些照片吧”他说。我们便在办公室的Mac里找适合的幻灯片应用程序，
+不过找不到我们喜欢的。我们只好用苹果电脑预览应用程序。可是它非常慢，
+而且用全屏的时候无法旋转图像！所以我打算寫我自己的应用程序，
+Phoenix Slides就这樣生成了。</p>
+
+<p>我以前很喜欢用Caffeine Software的Curator应用程序，可惜它已经不再开发。
+它也有其他的小毛病，例如，你要等到它生成缩略图才能看幻灯片。我觉得这樣太不合理了。
+当然，Phoenix Slides没有这樣的毛病。
+</p>
+
+<p>为什麼Phoenix呢？除了它的神話意义，它也是旧金山市旗的标誌(我住在旧金山)。
+我也很喜欢Fawkes(在哈利波特里它是Dumbledore的凤凰).</p>
+
+<h2><a name="ack"></a>致谢</h2>
+<p>谢谢David Chow，他總是找到方法crash我的应用程序。</p>
+
+<p>谢谢Thomas Steg (德国 Karlsruhe) - 德文翻译；
+C&eacute;sar Pi&ntilde;era - 西班牙文翻译；
+Laurent Bovet - 法文翻译；
+Silvano Dotti - 意大利文翻译。</p>
+
+
+<p>最后也要感谢我的前任老板，他解雇了我我才有空开发Phoenix Slides。
+</p>
+
+<h2>Help Wanted</h2>
+<p>Looking for localization help: If you want to translate
+Phoenix Slides to your language please
+<a href="http://blyt.net/Contact.html">contact me</a>.</p>
+
+<h2><a name="contact"></a>联系方式/版权</h2>
+<p>官方網站:
+<a href="https://blyt.net/phxslides/">https://blyt.net/phxslides/</a>
+</p>
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+<p>
+此软体是免费、开放的，可以为非商业性用途重制、分发或创作衍生作品。
+但需保留我的姓名标示、用相同的授权方式分享(除非您取得著作权人之许可)。<br>
+Copyright 2005-2024 by Dominic Yu. This software is free and open source.
+You are free to use it for non-commercial
+purposes. Derivative works must give proper credit to me and be shared under
+the same license, unless I give written permission stating otherwise.</p>
+
+</body>
+</html>

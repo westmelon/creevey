@@ -121,6 +121,13 @@
 		F202E2D8191713FC00EDDCEC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DYJpegtranPanel.strings; sourceTree = "<group>"; };
 		F202E2D91917140500EDDCEC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CreeveyWindow.strings; sourceTree = "<group>"; };
 		F202E2DA1917140800EDDCEC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CreeveyWindow.strings"; sourceTree = "<group>"; };
+		F2A110012C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F2A110022C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DYJpegtranPanel.strings"; sourceTree = "<group>"; };
+		F2A110032C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CreeveyWindow.strings"; sourceTree = "<group>"; };
+		F2A110042C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hans"; path = "zh-Hans.lproj/Phoenix Slides Help"; sourceTree = "<group>"; };
+		F2A110052C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EXIF.strings"; sourceTree = "<group>"; };
+		F2A110062C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ThumbnailContextMenu.strings"; sourceTree = "<group>"; };
+		F2A110072C00000100C0DE01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/creeveyhelp.rtf"; sourceTree = "<group>"; };
 		F202E2DB1917140A00EDDCEC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/CreeveyWindow.strings; sourceTree = "<group>"; };
 		F202E2DC1917140C00EDDCEC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/CreeveyWindow.strings; sourceTree = "<group>"; };
 		F202E2DD1917140E00EDDCEC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CreeveyWindow.strings; sourceTree = "<group>"; };
@@ -536,6 +543,7 @@
 			knownRegions = (
 				en,
 				"zh-Hant",
+				"zh-Hans",
 				de,
 				es,
 				fr,
@@ -637,6 +645,7 @@
 			children = (
 				F21E90930892BA9F007B65EF /* de */,
 				F26268BA08987A500045DEFC /* zh-Hant */,
+				F2A110012C00000100C0DE01 /* zh-Hans */,
 				F221AAAB0960A924002B38F5 /* es */,
 				F2E83B920BD09D8F0092E425 /* it */,
 				F277E1351917453600D2F574 /* fr */,
@@ -650,6 +659,7 @@
 				F202E2D3191713C500EDDCEC /* Base */,
 				F202E2D4191713F200EDDCEC /* de */,
 				F202E2D5191713F400EDDCEC /* zh-Hant */,
+				F2A110022C00000100C0DE01 /* zh-Hans */,
 				F202E2D6191713F700EDDCEC /* es */,
 				F202E2D7191713FA00EDDCEC /* it */,
 				F202E2D8191713FC00EDDCEC /* fr */,
@@ -663,6 +673,7 @@
 				F202E2D2191713C500EDDCEC /* Base */,
 				F202E2D91917140500EDDCEC /* de */,
 				F202E2DA1917140800EDDCEC /* zh-Hant */,
+				F2A110032C00000100C0DE01 /* zh-Hans */,
 				F202E2DB1917140A00EDDCEC /* es */,
 				F202E2DC1917140C00EDDCEC /* it */,
 				F202E2DD1917140E00EDDCEC /* fr */,
@@ -685,6 +696,7 @@
 				F2097598081F3C4400AD4E00 /* en */,
 				F21AD0D90892B4AB0054EA35 /* de */,
 				F25C834D0895D35D009C0A03 /* zh-Hant */,
+				F2A110042C00000100C0DE01 /* zh-Hans */,
 				F221AA6109608C31002B38F5 /* es */,
 				F2B13C050BCEE73500CF252E /* it */,
 			);
@@ -705,6 +717,7 @@
 			children = (
 				F254E98F0891A7E100DE9C38 /* en */,
 				F254E9950891A80400DE9C38 /* zh-Hant */,
+				F2A110052C00000100C0DE01 /* zh-Hans */,
 				F21AD0BC0892AC440054EA35 /* de */,
 				F221AA6409608C70002B38F5 /* es */,
 				F26F29EF0AEF271D00F60799 /* fr */,
@@ -718,6 +731,7 @@
 			children = (
 				F276A7471B4095F50045E67A /* Base */,
 				F2D8407B1B40971B00A4F731 /* zh-Hant */,
+				F2A110062C00000100C0DE01 /* zh-Hans */,
 				F2D8407D1B40971F00A4F731 /* de */,
 				F2D8407F1B40972000A4F731 /* es */,
 				F2D840811B40972100A4F731 /* fr */,
@@ -730,6 +744,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F2AC5BEB0819F61700E5E5E6 /* zh-Hant */,
+				F2A110072C00000100C0DE01 /* zh-Hans */,
 				F2AC5BEF0819F62C00E5E5E6 /* en */,
 				F21AD0C00892AC700054EA35 /* de */,
 				F221AA51096089D5002B38F5 /* es */,
